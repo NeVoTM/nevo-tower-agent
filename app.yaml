@@ -1,0 +1,3 @@
+service: default
+runtime: nodejs20
+entrypoint: npx serve -s build
