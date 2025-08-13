@@ -3,9 +3,9 @@ steps:
     args: ['install']
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
-  - name: 'gcr.io/cloud-builders/firebase'
-    args: ['deploy', '--project=mmm-nevo']
-    entrypoint: bash
+  - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: 'npx'
+    args: ['firebase', 'deploy', '--project=mmm-nevo', '--token=${_FIREBASE_TOKEN}']
 
 options:
   logging: CLOUD_LOGGING_ONLY
