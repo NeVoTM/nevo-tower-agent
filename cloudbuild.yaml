@@ -3,13 +3,12 @@ steps:
     args: ['install']
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
-  - name: 'gcr.io/google.com/cloudsdk/cloud-sdk'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        gcloud auth activate-service-account --key-file=/workspace/service_account.json
         firebase deploy --project=mmm-nevo --token=${_FIREBASE_TOKEN}
-        
+
 options:
   logging: CLOUD_LOGGING_ONLY
